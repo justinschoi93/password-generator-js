@@ -2,18 +2,17 @@
 
 ## Technology Used 
 
-| Technology Used         | Resource URL           | 
-| ------------- |:-------------:| 
-| HTML    | [https://developer.mozilla.org/en-US/docs/Web/HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) | 
-| CSS     | [https://developer.mozilla.org/en-US/docs/Web/CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)      |   
-| Git | [https://github.com/](https://github.com/)     |    
+| Technology Used | Resource URL | 
+
+| HTML | [https://developer.mozilla.org/en-US/docs/Web/HTML]| 
+| CSS  | [https://developer.mozilla.org/en-US/docs/Web/CSS]|   
+| Git | [https://github.com/]|    
 
 ## Description 
 
 [Visit the Deployed Site](https://youtu.be/BFyeuLhjcPY)
 
 A non-functioning password generator was fixed, and it is now fully functional! 
-
 
 
 ## Code Refactor Example
@@ -39,7 +38,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Learning Points 
 
-I learned a lot of new techniques while completing this challenge. I learned how to generate a unique, randomized password on javascript using strings, arrays, loops and conditionals. I also learned how to use methods to turn strings into arrays, and arrays into strings. I also learned how to select HTML elements in javascript, and how to make changes to those elements via dot notation and methods, also through javascript. 
+I learned a lot of new techniques while completing this challenge. I learned how to generate a unique, randomized password on javascript using strings, arrays, loops and conditionals. I also learned how to use methods to turn strings into arrays, and arrays into strings... how to concatenate strings and how to use the .find method... I also learned how to select HTML elements in javascript, and how to make changes to those elements via dot notation and methods, also through javascript. 
 
 
 ## Author Info
@@ -49,7 +48,7 @@ I learned a lot of new techniques while completing this challenge. I learned how
 
 
 * [Portfolio](TBA)
-* [LinkedIn](https://linkedin.com/in/justinchoica)
+* [LinkedIn](https://linkedin.com/in/justinschoi93)
 * [Github](https://github.com/justinschoi93)
 
 

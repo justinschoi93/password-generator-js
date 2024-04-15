@@ -1,63 +1,4 @@
-// Assignment code here
-function generatePassword (){
-        //we initialize the necessary strings and arrays
-        let result = [];
-        let lowerCase='abcdefghijklmnopqrstuvwxyz';
-        let upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        let numbers = '0123456789';
-        let specialChar = '!@#$%^&*()-_=+<>?:;~`';
-        let allInclusive = '';
-        let n = window.prompt("How many characters would you like your password to be? Choose a number between 8 and 124.");
-        //we check to see if the user input is valid
-        if (n < 8 || n > 124) {
-                //if it isn't, we alert them. 
-                window.alert("You must choose a number between 8 and 124.");
-        } else {
-                //if it is, we ask them a series of questions. 
-                //we then make sure that each of the desired character types are accounted for. 
-                if (window.confirm("Would you like lower case letters in your password?")) {
-                        result.push(lowerCase[Math.floor(Math.random() * lowerCase.length)]);
-                        allInclusive += lowerCase;
-                        n--;
-                }
-        
-                if (window.confirm("Would you like upper case letters in your password?")) {
-                        result.push(upperCase[Math.floor(Math.random() * upperCase.length)]);
-                        allInclusive += upperCase;
-                        n--;
-                }
-        
-                if (window.confirm("Would you like numbers in your password?")) {
-                        result.push(numbers[Math.floor(Math.random() * numbers.length)]);
-                        allInclusive += numbers;
-                        n--;
-                }
-        
-                if (window.confirm("Would you like special characers in your password?")) {
-                        result.push(specialChar[Math.floor(Math.random() * specialChar.length)]);
-                        allInclusive += specialChar;
-                        n--;
-                } 
-                //we also make sure that at least 1 of the character types are selected. 
-                if (allInclusive === '') {window.alert("You must select at least 1 of the above.")}
-                //we then make sure that the password is the desired length. 
-                for (let i = 0; i < n; i++){
-                        result.push(allInclusive[Math.floor(Math.random() * allInclusive.length)]);
-        
-                }     
-        }
-        
-
-        
-        // console.log(result);
-        result = result.join("");
-        // console.log(result);
-       //we then convert the result array into a string, and return the newly generated password. 
-        return result;
-
-}
-
-// Get references to the #generate element
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -65,8 +6,115 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password; 
+  passwordText.value = password;
+
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+function generatePassword(){
+  const lowercaseCharacters = "abcdefghijklmnopqrstuvwxyz";
+  const uppercaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const numericCharacters = "0123456789";
+  let specialCharacters = "!@#$%^&*";
+  let characterBank = '';
+  
+
+  // User inputs
+  //// Password length: 8-128 characters
+  //// Character types: lowercase, uppercase, numeric, and/or special characters
+  /////// Special Characters
+  //// Has at least one of each character type user has requested
+
+  let passwordLength = prompt("How long would you like your password to be? (8-128 characters)");
+  if(passwordLength < 8 || passwordLength > 128){
+    alert("Please enter a number between 8 and 128.");
+    return;
+  }
+
+  let lowercase = confirm("Would you like to include lowercase characters?");
+  let uppercase = confirm("Would you like to include uppercase characters?");
+  let numeric = confirm("Would you like to include numeric characters?");
+  let special = confirm("Would you like to include special characters?");
+
+  if (special) {
+    special = prompt("Please enter the special characters you would like to include.");
+  }
+
+  if (lowercase) { characterBank += lowercaseCharacters };
+  if (uppercase) { characterBank += uppercaseCharacters };
+  if (numeric) { characterBank += numericCharacters };
+  if (special) { characterBank += specialCharacters };
+
+  let password = '';
+  
+  for (let i = 0; i < passwordLength; i++){
+    let randomIndex = Math.floor(Math.random() * characterBank.length);
+    password += characterBank[randomIndex];
+  }
+  
+  ////////////////// TEST PASSWORD //////////////////////////////////////////////////
+  if (lowercase) {
+    const pass = password.split('').find(char => lowercaseCharacters.includes(char));
+    if (!pass) {
+      console.log('Password does not contain lowercase characters. Creating new password');
+      generatePassword();
+    }
+  }
+  if (uppercase) {
+    const pass = password.split('').find(char => uppercaseCharacters.includes(char));
+    if (!pass) {
+      console.log('Password does not contain uppercase characters. Creating new password');
+      generatePassword();
+    }
+  }
+  if (numeric) {
+    const pass = password.split('').find(char => numericCharacters.includes(char));
+    if (!pass) {
+      console.log('Password does not contain numeric characters. Creating new password');
+      generatePassword();
+    }
+  }
+  if (special) {
+    const pass = password.split('').find(char => specialCharacters.includes(char));
+    if (!pass) {
+      console.log('Password does not contain special characters. Creating new password');
+      generatePassword();
+    }
+  }
+  ////////////// RETURN PASSWORD ////////////////////////////////////////////////////
+  return password;
+  
+};
+
+// function testPassword () {
+//   if (lowercase) {
+//     const pass = password.split('').find(char => lowercaseCharacters.includes(char));
+//     if (!pass) {
+//       console.log('Password does not contain lowercase characters. Creating new password');
+//       generatePassword();
+//     }
+//   }
+//   if (uppercase) {
+//     const pass = password.split('').find(char => uppercaseCharacters.includes(char));
+//     if (!pass) {
+//       console.log('Password does not contain uppercase characters. Creating new password');
+//       generatePassword();
+//     }
+//   }
+//   if (numeric) {
+//     const pass = password.split('').find(char => numericCharacters.includes(char));
+//     if (!pass) {
+//       console.log('Password does not contain numeric characters. Creating new password');
+//       generatePassword();
+//     }
+//   }
+//   if (special) {
+//     const pass = password.split('').find(char => specialCharacters.includes(char));
+//     if (!pass) {
+//       console.log('Password does not contain special characters. Creating new password');
+//       generatePassword();
+//     }
+//   }
+// };
